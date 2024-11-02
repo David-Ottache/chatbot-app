@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
-import { Send } from 'lucide-react'
+import { Send, Trash2 } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { ScrollArea } from "@/components/ui/scroll-area"
@@ -38,6 +38,10 @@ export default function Component() {
     if (e.key === 'Enter') {
       handleSend();
     }
+  };
+
+  const handleClear = () => {
+    setMessages([{ id: 1, text: "Hello! I am John, How may I assist you?", sender: 'bot' }]);
   };
 
   useEffect(() => {
@@ -89,7 +93,12 @@ export default function Component() {
             <Send className="w-4 h-4" />
             <span className="sr-only">Send</span>
           </Button>
+          <Button onClick={handleClear} variant="outline" className="px-4 py-2">
+          <Trash2 className="w-4 h-4 mr-2" />
+          
+        </Button>
         </div>
+       
       </div>
     </div>
   )
